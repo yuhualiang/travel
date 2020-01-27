@@ -1,15 +1,15 @@
 <template>
     <div class="home">
-        <h1>home</h1>
+        Header
     </div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Header'
 }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 
 </style>
