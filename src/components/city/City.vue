@@ -1,9 +1,9 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-search :cities="cities"></city-search>
+    <city-search :cities="cities" @showTag="handleAzIndex"></city-search>
     <city-list :cities="cities" :hot="hotCities" :letter="letter"></city-list>
-    <city-alphabet :cities="cities"
+    <city-alphabet :cities="cities" v-show="azIndex"
                     @change="handleLetterChange"></city-alphabet>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
   name: 'City',
   data() {
     return {
+      azIndex: true,
       cities: {},
       hotCities: [],
       letter: ''
@@ -28,6 +29,9 @@ export default {
     this._getCityInfo()
   },
   methods: {
+    handleAzIndex() {
+      this.azIndex = !this.azIndex
+    },
     handleLetterChange(letter) {
       this.letter = letter
     },
