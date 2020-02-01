@@ -1,32 +1,32 @@
 <template>
     <div>
       <div class="banner" @click="handleBannerClick">
-          <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg">
+          <img class="banner-img" :src="bannerImg">
           <div class="banner-info">
             <div class="banner-title">
-              大连圣亚海洋世界(AAAA景区)
+              {{sightName}}
             </div>
             <div class="banner-number">
               <span class="iconfont banner-icon">&#xe7b3;</span>
-              39
+              {{bannerImgs.length}}
             </div>
           </div>
       </div>
-      <common-gallary @close="handleGallaryClick" :imgs="imgs" v-show="showGallary"></common-gallary>
+      <common-gallary @close="handleGallaryClick" :imgs="bannerImgs" v-show="showGallary"></common-gallary>
     </div>
 </template>
 <script>
 import CommonGallary from 'common/gallary/Gallary'
 export default {
   name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
+  },
   data() {
     return {
-      showGallary: false,
-      imgs: [
-        'http://img1.qunarzz.com/sight/p0/1510/8e/8eea8eb6f41698290.img.jpg_r_800x800_83a5fe3a.jpg',
-        'http://img1.qunarzz.com/sight/p0/1510/ca/ca60a080020329ef90.img.jpg_350x240_9ff2208e.jpg',
-        'http://img1.qunarzz.com/sight/p0/1510/cc/ccafbdaac21bdbf790.img.jpg_350x240_c35f8451.jpg'
-      ]
+      showGallary: false
     }
   },
   methods: {
