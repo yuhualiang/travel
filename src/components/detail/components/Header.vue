@@ -37,10 +37,11 @@ export default {
       }
     }
   },
-  activated() {
+  mounted() {
     window.addEventListener('scroll', this.handleScroll)
   },
-  deactivated() {
+  destroyed() {
+    console.log('l23')
     window.removeEventListener('scroll', this.handleScroll)
   }
 }
